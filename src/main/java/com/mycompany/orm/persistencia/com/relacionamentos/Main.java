@@ -8,7 +8,7 @@ package com.mycompany.orm.persistencia.com.relacionamentos;
  *
  * @author ramos
  */
-public class ORMPERSISTENCIACOMRELACIONAMENTOS {
+public class Main {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
