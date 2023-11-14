@@ -7,10 +7,11 @@ import java.util.ArrayList;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import java.util.List;
 
 public abstract class Dao <E> implements IDao <E> {
-    final static String DB = "library";
-
+    final static String DB = "alphasystem";
+    
     @Override
     public Long saveOrUpdate(E e) {
         Long id = 0L;
@@ -98,7 +99,7 @@ public abstract class Dao <E> implements IDao <E> {
     }
 
     @Override
-    public ArrayList<E> findAll() {
+    public List<E> findAll() {
         try (PreparedStatement preparedStatement
                      = DbConnection.getConnection().prepareStatement(
                 getFindAllStatement())) {
@@ -117,7 +118,7 @@ public abstract class Dao <E> implements IDao <E> {
         }
         return null;
     }
-
+    
     @Override
     public void delete(Long id) {
         try (PreparedStatement preparedStatement = DbConnection.getConnection().prepareStatement(getDeleteStatement())) {
@@ -131,4 +132,9 @@ public abstract class Dao <E> implements IDao <E> {
             System.out.println("Exception: " + ex);
         }
     }
+    
+    @Override
+    public List<E> extractObjects(ResultSet rs){  // Não sei essa implementação
+        return null;
+    };
 }
