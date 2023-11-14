@@ -1,1 +1,13 @@
-com\mycompany\orm\persistencia\com\relacionamentos\Main.class
+com\mycompany\orm\persistencia\com\relacionamentos\user\User.class
+com\mycompany\orm\persistencia\com\relacionamentos\credential\CredentialDao.class
+com\mycompany\orm\persistencia\com\relacionamentos\repository\IDao.class
+com\mycompany\orm\persistencia\com\relacionamentos\repository\Dao.class
+com\mycompany\orm\persistencia\com\relacionamentos\role\Role.class
+com\mycompany\orm\persistencia\com\relacionamentos\entity\Entity.class
+com\mycompany\orm\persistencia\com\relacionamentos\role\RoleDao.class
+com\mycompany\orm\persistencia\com\relacionamentos\librarian\Librarian.class
+com\mycompany\orm\persistencia\com\relacionamentos\repository\DbConnection.class
+com\mycompany\orm\persistencia\com\relacionamentos\credential\Credential.class
+com\mycompany\orm\persistencia\com\relacionamentos\reader\Reader.class
+com\mycompany\orm\persistencia\com\relacionamentos\librarian\LibrarianDao.class
+com\mycompany\orm\persistencia\com\relacionamentos\reader\ReaderDao.class

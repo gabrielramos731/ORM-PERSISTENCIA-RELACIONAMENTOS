@@ -53,7 +53,6 @@ public class DbConnection {
             } catch (SQLException ex) {
                 // Log failure
                 Logger.getLogger(DbConnection.class.getName()).log(Level.SEVERE, null, ex);
-//                System.exit(-1);
             }
         }
 

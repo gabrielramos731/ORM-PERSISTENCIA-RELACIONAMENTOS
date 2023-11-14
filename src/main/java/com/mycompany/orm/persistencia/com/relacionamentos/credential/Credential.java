@@ -2,10 +2,6 @@ package com.mycompany.orm.persistencia.com.relacionamentos.credential;
 
 import java.time.LocalDate;
 
-/**
- *
- * @author ramos
- */
 public class Credential {
     
     private String username;
