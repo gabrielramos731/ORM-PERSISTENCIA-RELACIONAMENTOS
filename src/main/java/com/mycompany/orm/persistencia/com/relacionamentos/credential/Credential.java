@@ -1,8 +1,10 @@
 package com.mycompany.orm.persistencia.com.relacionamentos.credential;
 
+import com.mycompany.orm.persistencia.com.relacionamentos.entity.Entity;
+
 import java.time.LocalDate;
 
-public class Credential {
+public class Credential extends Entity {
     
     private String username;
     private String password;

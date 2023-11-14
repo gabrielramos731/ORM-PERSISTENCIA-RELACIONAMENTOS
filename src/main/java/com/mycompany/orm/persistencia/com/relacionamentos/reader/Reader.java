@@ -1,5 +1,7 @@
 package com.mycompany.orm.persistencia.com.relacionamentos.reader;
 
-public class Reader {
+import com.mycompany.orm.persistencia.com.relacionamentos.user.User;
+
+public class Reader extends User {
     
 }

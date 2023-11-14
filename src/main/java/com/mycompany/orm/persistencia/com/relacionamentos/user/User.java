@@ -1,8 +1,10 @@
 package com.mycompany.orm.persistencia.com.relacionamentos.user;
 
+import com.mycompany.orm.persistencia.com.relacionamentos.entity.Entity;
+
 import java.time.LocalDate;
 
-public class User {
+public class User extends Entity {
     
     private String name;
     private String email;

@@ -1,6 +1,8 @@
 package com.mycompany.orm.persistencia.com.relacionamentos.role;
 
-public class Role {
+import com.mycompany.orm.persistencia.com.relacionamentos.entity.Entity;
+
+public class Role extends Entity {
     
     private String name;
 
