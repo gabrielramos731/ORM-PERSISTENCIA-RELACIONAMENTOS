@@ -19,7 +19,7 @@ public class UserDao extends Dao<User> {
     public String getUpdateStatement() {
         return null;
     }
-
+    
     @Override
     public String getFindByIdStatement() {
         return null;

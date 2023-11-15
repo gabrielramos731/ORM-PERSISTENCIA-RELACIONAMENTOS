@@ -10,8 +10,9 @@ public class Role extends Entity {
     
     public Role() {}
 
-    public Role(String name) throws Exception{
-        this.name = name;
+    public Role(Long id, String name) throws Exception{
+        setId(id);
+        setName(name);
     }
     //</editor-fold>
 

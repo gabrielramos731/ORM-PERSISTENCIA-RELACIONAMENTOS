@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 14/11/2023 às 15:16
+-- Tempo de geração: 15/11/2023 às 15:29
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -32,7 +32,8 @@ CREATE TABLE `credential` (
   `username` varchar(15) NOT NULL,
   `password` varchar(32) NOT NULL,
   `lastAccess` date NOT NULL,
-  `enabled` tinyint(1) NOT NULL
+  `enabled` tinyint(1) NOT NULL,
+  `user_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -92,7 +93,8 @@ CREATE TABLE `user` (
 --
 ALTER TABLE `credential`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`);
+  ADD UNIQUE KEY `username` (`username`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Índices de tabela `librarian`
@@ -159,6 +161,12 @@ ALTER TABLE `user`
 --
 -- Restrições para tabelas despejadas
 --
+
+--
+-- Restrições para tabelas `credential`
+--
+ALTER TABLE `credential`
+  ADD CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
 -- Restrições para tabelas `user`

@@ -8,19 +8,30 @@ public class Credential extends Entity {
     
     private String username;
     private String password;
-    private LocalDate lastAcess;
+    private LocalDate lastAccess;
     private boolean enabled;
-
-    public Credential(String username, String password, LocalDate lastAcess, boolean enabled) throws Exception{
-        setUsername(username);
-        setPassword(password);
-        this.lastAcess = lastAcess;
-        this.enabled = enabled;
-    }
+    private Long userId;
 
     //<editor-fold defaultstate="collapsed" desc="constructors">
     
     public Credential() {}
+
+    public Credential(Long id, String username, String password, LocalDate lastAccess, boolean enabled) throws Exception{
+        setId(id);
+        setUsername(username);
+        setPassword(password);
+        this.lastAccess = lastAccess;
+        this.enabled = enabled;
+    }
+    
+    public Credential(Long id, String username, String password, LocalDate lastAccess, boolean enabled, Long userId) throws Exception{
+        setId(id);
+        setUsername(username);
+        setPassword(password);
+        this.lastAccess = lastAccess;
+        this.enabled = enabled;
+        this.userId = userId;
+    }
 
     public String getUsername() {
         return username;
@@ -43,12 +54,12 @@ public class Credential extends Entity {
         else throw new IllegalAccessException("Tamanho de senha inválido");
     }
 
-    public LocalDate getLastAcess() {
-        return lastAcess;
+    public LocalDate getLastAccess() {
+        return lastAccess;
     }
 
-    public void setLastAcess(LocalDate lastAcess) {
-        this.lastAcess = lastAcess;
+    public void setLastAccess(LocalDate lastAccess) {
+        this.lastAccess = lastAccess;
     }
 
     public boolean isEnabled() {
@@ -58,5 +69,15 @@ public class Credential extends Entity {
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
+    
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+    
     //</editor-fold>
+
 }
