@@ -9,8 +9,10 @@ ifnmg\edu\br\repository\IDao.class
 ifnmg\edu\br\reader\Reader.class
 ifnmg\edu\br\repository\Dao.class
 ifnmg\edu\br\entity\Entity.class
+ifnmg\edu\br\telas\login$1.class
 ifnmg\edu\br\role\Role.class
 ifnmg\edu\br\credential\Credential.class
+ifnmg\edu\br\telas\login.class
 ifnmg\edu\br\Teste.class
 ifnmg\edu\br\librarian\LibrarianDao.class
 ifnmg\edu\br\role\RoleDao.class
