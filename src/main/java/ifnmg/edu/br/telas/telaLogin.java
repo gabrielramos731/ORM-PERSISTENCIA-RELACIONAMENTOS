@@ -144,7 +144,7 @@ public class telaLogin extends javax.swing.JFrame {
         if(aut.autenticar(c) != null){
             
             System.out.println(">> Autenticado: " + aut.autenticar(c).getUsername());
-            //new Principal(autenticacao).setVisible(true);
+            new Principal().setVisible(true);
             dispose();
         }else {
             System.out.println(">> Não autenticado");
