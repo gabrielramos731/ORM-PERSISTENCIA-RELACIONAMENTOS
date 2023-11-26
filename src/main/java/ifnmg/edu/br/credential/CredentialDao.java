@@ -125,6 +125,7 @@ public class CredentialDao extends Dao<Credential> {
             credential.setId(resultSet.getLong("id"));
             User user = new UserDao().findById(credential.getId());
             credential.setUser(user);
+            user.setCredential(credential);
             credential.setUsername(resultSet.getString("username"));
             credential.setPassword(resultSet.getString("password"));
             credential.setLastAccess( resultSet.getObject("last_access", LocalDate.class));
@@ -136,7 +137,7 @@ public class CredentialDao extends Dao<Credential> {
         return credential;
     }
     
-    public Credential autenticar(Credential usuario) {
+    public User autenticar(Credential usuario) {
         try ( PreparedStatement pstmt
                 = DbConnection.getConnection().prepareStatement(
                         // Sentença SQL para validação de usuário
@@ -156,7 +157,7 @@ public class CredentialDao extends Dao<Credential> {
             if (resultSet.next()) {
                 // ... implica que email e senha estão corretos 
                 // para o usuário e devolve os dados completos deste
-                return extractObject(resultSet);
+                return extractObject(resultSet).getUser();
             }
 
         } catch (Exception e) {
