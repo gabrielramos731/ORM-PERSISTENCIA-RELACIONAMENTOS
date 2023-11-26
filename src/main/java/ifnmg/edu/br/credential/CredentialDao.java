@@ -135,5 +135,34 @@ public class CredentialDao extends Dao<Credential> {
 
         return credential;
     }
+    
+    public Credential autenticar(Credential usuario) {
+        try ( PreparedStatement pstmt
+                = DbConnection.getConnection().prepareStatement(
+                        // Sentença SQL para validação de usuário
+                        "SELECT * "
+                        + "FROM credential "
+                        + "WHERE username = ? "
+                        + "AND password = MD5(?)")) {
 
+            // Prepara a declaração com os dados do objeto passado
+            pstmt.setString(1, usuario.getUsername());
+            pstmt.setString(2, usuario.getPassword()+SALT);
+
+            // Executa o comando SQL
+            ResultSet resultSet = pstmt.executeQuery();
+
+            // Se há resultado retornado...
+            if (resultSet.next()) {
+                // ... implica que email e senha estão corretos 
+                // para o usuário e devolve os dados completos deste
+                return extractObject(resultSet);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 }

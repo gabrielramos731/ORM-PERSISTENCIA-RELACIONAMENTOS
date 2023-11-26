@@ -1,6 +1,7 @@
 package ifnmg.edu.br.user;
 
 import ifnmg.edu.br.repository.Dao;
+import ifnmg.edu.br.repository.DbConnection;
 import ifnmg.edu.br.role.Role;
 import ifnmg.edu.br.role.RoleDao;
 
