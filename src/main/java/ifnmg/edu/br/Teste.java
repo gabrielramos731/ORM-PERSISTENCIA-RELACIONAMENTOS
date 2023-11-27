@@ -11,25 +11,35 @@ import ifnmg.edu.br.reader.ReaderDao;
 import ifnmg.edu.br.role.Role;
 import ifnmg.edu.br.role.RoleDao;
 import ifnmg.edu.br.user.User;
+import ifnmg.edu.br.user.UserDao;
 import java.util.List;
 
 public class Teste {
+
     public static void TesteA() {
         try {
             Role role = new Role("ADMINISTRADOR");
             Long roleID = new RoleDao().saveOrUpdate(role);
             role.setId(roleID);
 
-            Librarian admin = null;
-            admin = new Librarian(
+            User admin = null;
+            admin = new User(
                     "admin",
                     "admin@mail.com",
                     LocalDate.now(),
                     role,
-                    new Credential(null, "admin", "123", LocalDate.now(), true, null));
-            
+                    new Credential(null, "admin", "123", LocalDate.now(), true, admin));
+
             admin.getCredential().setUser(admin);
-            Long userId = new LibrarianDao().saveOrUpdate(admin);
+
+            Long idUser = new UserDao().saveOrUpdate(admin);
+            if (admin.getId() == null || admin.getId() == 0) {
+                admin.setId(-idUser);
+            } else {
+                admin.setId(idUser);
+            }
+
+            new CredentialDao().saveOrUpdate(admin.getCredential());
 
             System.out.println("Administrador criado com sucesso");
             System.out.println(admin.toString());
@@ -74,10 +84,10 @@ public class Teste {
                     LocalDate.now(),
                     role,
                     new Credential(null, "leitor1", "qwerty", LocalDate.now(), true, leitor1));
-            
+
             leitor1.getCredential().setUser(leitor1);
             Long userId = new ReaderDao().saveOrUpdate(leitor1);
-            
+
             System.out.println("Leitor criado com sucesso");
             System.out.println(leitor1.toString());
         } catch (Exception ex) {
@@ -107,7 +117,6 @@ public class Teste {
             allObjects = new ReaderDao().findAll();
             System.out.println("Todos os leitores: ");
             for (var x : allObjects) {
-                System.out.println(x.getRole().getName());
                 System.out.println(x.getName());
             }
         } catch (Exception ex) {
