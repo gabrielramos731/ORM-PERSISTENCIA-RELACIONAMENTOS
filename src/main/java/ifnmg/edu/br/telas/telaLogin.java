@@ -31,6 +31,7 @@ public class telaLogin extends javax.swing.JFrame {
         txtErro.setVisible(false);
         if(userPast != null){
             txtLogin.setText(userPast.getUsername());
+            txtLogin.selectAll();
         }       
     }
 
@@ -59,6 +60,11 @@ public class telaLogin extends javax.swing.JFrame {
         txtLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtLoginActionPerformed(evt);
+            }
+        });
+        txtLogin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtLoginKeyPressed(evt);
             }
         });
 
@@ -184,6 +190,7 @@ public class telaLogin extends javax.swing.JFrame {
         
         pwdSenha.setText(null);
         txtLogin.requestFocus();
+        txtLogin.selectAll();
         pwdSenha.selectAll();
     }//GEN-LAST:event_btnEnviarActionPerformed
 
@@ -201,6 +208,11 @@ public class telaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         txtErro.setVisible(false);
     }//GEN-LAST:event_pwdSenhaFocusGained
+
+    private void txtLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLoginKeyPressed
+        // TODO add your handling code here:
+        txtErro.setVisible(false);
+    }//GEN-LAST:event_txtLoginKeyPressed
 
     /**
      * @param args the command line arguments

@@ -22,8 +22,23 @@ public class telaPrincipal extends javax.swing.JFrame {
 
         //<editor-fold defaultstate="collapsed" desc="Ativação/Desativação de menus">
         //admin
+            instance.mniCadastrarUser.setVisible(true);
+            instance.mniEditarUser.setVisible(true);
+            instance.mniSeparadorUser.setVisible(true);
+            instance.mniAdmUser.setVisible(true);
+            instance.mniSeparador1User.setVisible(true);
+            
+            instance.mniAutorizarEmp.setVisible(true);
+            instance.mniNovoEmp.setVisible(true);
+            instance.mniEditarEmp.setVisible(true);
+            instance.mniHistEmp.setVisible(true);
+            
+            instance.mniNovoLiv.setVisible(true);
+            instance.mniBuscarLiv.setVisible(true);
+        
+        
         if(credential.getUser().getRole().getName().equals("administrador")){
-            instance.setTitle("Bem vindo - " + credential.getUser().getName());
+            instance.setTitle("Tela Principal - " + credential.getUser().getName());
         }else
         if(credential.getUser().getRole().getName().equals("bibliotecario")){
             instance.mniCadastrarUser.setVisible(false);
@@ -32,7 +47,7 @@ public class telaPrincipal extends javax.swing.JFrame {
             instance.mniAdmUser.setVisible(false);
             instance.mniSeparador1User.setVisible(false);
             instance.mniAutorizarEmp.setVisible(false);
-            instance.setTitle("Bem vindo - " + credential.getUser().getName());
+            instance.setTitle("Tela Principal - " + credential.getUser().getName());
         }else{
             instance.mniCadastrarUser.setVisible(false);
             instance.mniEditarUser.setVisible(false);
@@ -42,7 +57,7 @@ public class telaPrincipal extends javax.swing.JFrame {
             instance.mniNovoEmp.setVisible(false);
             instance.mniEditarEmp.setVisible(false);
             instance.mniNovoLiv.setVisible(false);
-            instance.setTitle("Bem vindo - " + credential.getUser().getName());
+            instance.setTitle("Tela Principal - " + credential.getUser().getName());
         }
         //instance.mnuCadastroUsuario.setEnabled(credencial.isAdministrador());
         //</editor-fold>
