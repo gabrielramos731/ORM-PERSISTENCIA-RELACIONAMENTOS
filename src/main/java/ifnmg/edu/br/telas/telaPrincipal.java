@@ -176,7 +176,7 @@ public class telaPrincipal extends javax.swing.JFrame {
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         // TODO add your handling code here:
         setVisible(false);
-        new telaLogin().setVisible(true);
+        new telaLogin().setVisible(true);       
     }//GEN-LAST:event_formWindowClosed
 
     private void mniNovoEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniNovoEmpActionPerformed

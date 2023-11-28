@@ -16,9 +16,22 @@ public class telaLogin extends javax.swing.JFrame {
     /**
      * Creates new form telaLogin
      */
+    private static Credential userPast;
+    
+    public void setUserPast(Credential userPast){
+        this.userPast = userPast;
+    }
+    
+    public Credential getUserPast(){
+        return this.userPast;
+    }
+    
     public telaLogin() {
         initComponents();
         txtErro.setVisible(false);
+        if(userPast != null){
+            txtLogin.setText(userPast.getUsername());
+        }       
     }
 
     /**
@@ -162,6 +175,7 @@ public class telaLogin extends javax.swing.JFrame {
             
             System.out.println(">> Autenticado: " + aut.autenticar(c).getCredential().getUsername());
             telaPrincipal.getInstance(aut.autenticar(c).getCredential()).setVisible(true);
+            this.userPast = c;
             dispose();
         }else {
             System.out.println(">> Não autenticado");
